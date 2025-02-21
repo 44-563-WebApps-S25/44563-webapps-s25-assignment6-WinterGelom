@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+ <head>
+    <title>City Game</title>
+ </head>
+<body>
+<h1>City game by Cody Garner</h1>
+<h2>Getting input</h2>
+
+<form>
+    <label for="city_id">Where in the world</label>
+    <input type ="password" id="city_id" name="city_id" value="San Diego"> <br>
+
+    <label for="city_guess">Guess the city</label>
+    <input type ="text" id="city_guess" name="city_guess" autofocus> <br>
+
+    <input type="button" onclick="checkCity()" value="Check the guess">
+</form>
+
+
+<p id="result">This text will be replaced </p>
+
+<script> 
+oops = 0
+found = 0
+function checkCity (){
+    console.log("Getting form values")
+    city = document.getElementById("city_id").value
+    guess_city = document.getElementById("city_guess").value
+    confirmed = city == guess_city
+    
+    out = document.getElementById("result")
+    if(confirmed){
+        found += 1
+        out.innerHTML = "GotCha\nFound: " + found + "\noops: " + oops
+    } else {
+        oops += 1
+        out.innerHTML = "Awe\nFound: " + found + "\noops: " + oops
+    }
+}
+</script>
+
+</body>
+</html> 
