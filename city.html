@@ -20,9 +20,13 @@
 
 <p id="result">This text will be replaced </p>
 
+<div>
+    <img id="image" src="Afghan_hound-image.jpg" height="150" width="150" onclick="updatePic()">
+</div>
 <script> 
 oops = 0
 found = 0
+usePic = 1
 function checkCity (){
     console.log("Getting form values")
     city = document.getElementById("city_id").value
@@ -36,6 +40,22 @@ function checkCity (){
     } else {
         oops += 1
         out.innerHTML = "Awe\nFound: " + found + "\noops: " + oops
+    }
+}
+function updatePic(){
+    switch(usePic){
+        case 1:
+            document.getElementById('image').src = "Afghan_hound-image.jpg"
+            usePic = 2
+        break;
+        case 2:
+            document.getElementById('image').src = "Gecko_image.jpg"
+            usePic = 3
+        break;
+        case 3:
+            document.getElementById('image').src = "rabit_image.jpg"
+            usePic = 1
+        break;
     }
 }
 </script>
