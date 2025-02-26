@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+ <head>
+    <title>Message Cost</title>
+ </head>
+<body>
+<h1>Cody Garner message cost</h1>
+<h2>Getting input</h2>
+
+<form>
+    <label for="basicprice">Enter cost per letter </label>
+    <input type ="number" id="basicprice" name="basicprice" min=10 max=50 step=2 value=0.50> <br>
+
+    <label for="breakAt">Enter the length needed for the discount </label>
+    <input type ="number" id="breakAt" name="breakAt" value=9> <br>
+
+    <label for="discount">Enter the discount percent</label>
+    <input type="number" value=10 id="discount">
+
+    <input type="button" onclick="amounts()" value="Show total">
+</form>
+
+
+<p id="result">This text will be replaced </p>
+
+<script> 
+
+function amounts(){
+    let basicprice = document.getElementById("basicprice").value
+    let breakAt = document.getElementById("breakAt").value
+    let discount = document.getElementById("discount").value
+    let myResults = ''
+    for(size = breakAt - 3; size < parseInt(breakAt) + 3; size ++){
+        if(size < breakAt){
+            calculated_cost = size*basicprice;
+        }
+        else{
+            calculated_cost = size*basicprice-basicprice*(discount/100);
+        }
+        myResults += "size " + size + " cost " + calculated_cost + "; ";
+    }
+    let out = document.getElementById("result")
+    out.innerHTML = "Totals are: " + myResults;
+}
+</script>
+
+</body>
+</html> 
