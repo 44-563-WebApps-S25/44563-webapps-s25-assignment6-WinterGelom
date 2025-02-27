@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+ <head>
+    <title>Dinner Plans</title>
+ </head>
+<body>
+<h1>Cody Garner plans dinner</h1>
+
+<form>
+    <label for="drink">Serve wine</label>
+    <input type ="checkbox" id="drink" name="form1_age" value=True checked> <br>
+
+    <label for="food">Eat outside</label>
+    <input type ="checkbox" id="food" name="form1_nick" value=True checked> <br>
+
+    <label for="lighting">Light candles</label>
+    <input type="checkbox" id="lighting" value=False> <br>
+
+    <input type="button" value="Dinner Choices" onclick="choices()">
+</form>
+
+<form>
+    <label for="main_dish">Enter main dish</label>
+    <input type="text" id="main_dish" value="Butter Chicken">
+    <br>
+
+    <label for="dessert">Enter dessert</label>
+    <input type="text" id="dessert">
+    <br>
+
+    <input type="button" value="Update the dinner" onclick="updateDinner()">
+</form>
+<p id="result">This text will be replaced </p>
+
+
+<script> 
+let my_dinner = {}
+function choices(){
+    my_dinner = {}
+    my_dinner = {
+        wine:document.getElementById("drink").checked,
+        outside:document.getElementById("food").checked,
+        candel:document.getElementById("lighting").checked
+        }
+    document.getElementById("result").innerHTML = "wine: " + my_dinner.wine + ", outside: " + my_dinner.outside + ", candel: " + my_dinner.candel;
+}
+function updateDinner(){
+    let main = document.getElementById("main_dish").value;
+    let dessert = document.getElementById("dessert").value;
+    my_dinner["main"] = main;
+    my_dinner["dessert"] = dessert;
+    if(my_dinner.wine == undefined){
+        document.getElementById("result").innerHTML = "Main dish: " + my_dinner.main +
+    ", Dessert: " + my_dinner.dessert;
+    }
+    else{
+        document.getElementById("result").innerHTML = "wine: " + my_dinner.wine + 
+        ", outside: " + my_dinner.outside + 
+        ", candel: " + my_dinner.candel +
+        ", Main dish: " + my_dinner.main +
+        ", Dessert: " + my_dinner.dessert;
+    }
+}
+</script>
+
+</body>
+</html> 
